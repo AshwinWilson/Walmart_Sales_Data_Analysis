@@ -35,6 +35,7 @@ df.head()
 Check for anomalies, null values, and data types.
 
 5. 🧹 Data Cleaning
+
 •	Remove Duplicates: Eliminated duplicate entries to prevent skewed analysis results.
 
 •	Handle Missing Values: Dropped rows or columns with insignificant missing values. Filled in values where necessary to preserve data integrity.
