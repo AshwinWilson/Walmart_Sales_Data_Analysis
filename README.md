@@ -101,6 +101,8 @@ FROM walmart
 GROUP BY Branch
 ORDER BY total_revenue DESC;
 ```
+![image](https://github.com/user-attachments/assets/a705b7e7-398b-4bff-be3c-a246bb1308d7)
+
 
 ### 2️⃣ Monthly Sales Trend by Category
 ```sql
@@ -136,6 +138,8 @@ FROM walmart
 GROUP BY category
 ORDER BY estimated_profit DESC;
 ```
+![image](https://github.com/user-attachments/assets/f3d1699c-dd85-42e4-a144-89a58f63c135)
+
 
 ### 6️⃣ Peak Hours by Quantity Sold
 ```sql
@@ -145,6 +149,8 @@ FROM walmart
 GROUP BY hour
 ORDER BY total_quantity DESC;
 ```
+![image](https://github.com/user-attachments/assets/374fcf18-2765-4aea-91ab-91c68e3f4a65)
+
 
 ### 7️⃣ Top-Selling Cities
 ```sql
@@ -154,6 +160,8 @@ FROM walmart
 GROUP BY City
 ORDER BY total_sales DESC;
 ```
+![image](https://github.com/user-attachments/assets/d4e82466-7257-4e00-a917-f5490b87ca74)
+
 
 ### 8️⃣ High-Rated Categories
 ```sql
