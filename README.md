@@ -1,64 +1,114 @@
-Walmart Sales Data Analysis | SQL + Python
-📌 Overview
-This project is a complete end-to-end data analysis pipeline using SQL and Python to derive actionable business insights from Walmart sales data. It showcases real-world data analyst tasks, including data cleaning, transformation, loading into SQL databases, and writing complex queries to solve business problems.
+🚀 Project Workflow: Walmart Sales Data Analysis
+This end-to-end data analytics project focuses on uncovering key business insights from Walmart sales data using Python, Pandas, SQLite (optionally MySQL/PostgreSQL), and SQL. Below is a step-by-step breakdown of the process.
 
-💼 Key Skills Demonstrated
-Data Cleaning & Preprocessing (Python, Pandas)
+1. 📁 Project Environment Setup
+Tools Used: Visual Studio Code (VS Code), Python 3.8+, SQLite / MySQL / PostgreSQL
 
-SQL Querying (MySQL & PostgreSQL)
+Goal: Set up a clean and structured workspace for smooth development and collaboration.
 
-Feature Engineering
+<pre> project/ │-- data/ # Raw and processed datasets │-- notebooks/ # Jupyter Notebooks for EDA and analysis │-- sql_queries/ # All SQL scripts used in the project │-- README.md # Project documentation │-- requirements.txt # Required Python libraries </pre>
+2. 🔑 Kaggle API Setup (Optional)
+This step is required only if downloading the dataset directly from Kaggle.
 
-EDA (Exploratory Data Analysis)
+Download your kaggle.json API key from your Kaggle account (Account Settings → API).
 
-Business Intelligence Reporting
+Save it in your system's .kaggle/ folder.
 
-Data Pipeline Creation
+Use this command to download the dataset:
 
-🧰 Tools & Technologies
-Languages: Python, SQL
-
-Databases: MySQL, PostgreSQL
-
-Libraries: pandas, numpy, sqlalchemy, mysql-connector-python, psycopg2
-
-Others: Jupyter Notebook, Kaggle API, VS Code
-
-🧱 Project Structure
 bash
 Copy
 Edit
-walmart-sales-analysis/
-├── data/                 # Raw & cleaned datasets
-├── notebooks/            # Python notebooks for analysis
-├── sql_queries/          # SQL scripts for business questions
-├── main.py               # Python script for data cleaning & loading
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation
-🔄 Workflow Summary
-1. Data Acquisition
-Pulled dataset using Kaggle API
+kaggle datasets download -d <dataset-path>
+3. 📥 Dataset Acquisition
+Source: Walmart Sales Dataset on Kaggle
 
-Stored raw data locally for transformation
+Store the dataset in the data/ folder for consistent access.
 
-2. Data Cleaning (Python)
-Removed duplicates and handled missing values
+4. 📦 Install Required Libraries
+Install all Python packages needed to run the project:
 
-Converted data types (dates, prices)
+bash
+Copy
+Edit
+pip install pandas numpy sqlalchemy sqlite3
+For optional MySQL or PostgreSQL integration:
 
-Formatted currency and numerical fields
+bash
+Copy
+Edit
+pip install mysql-connector-python psycopg2
+5. 🔍 Exploratory Data Analysis (EDA)
+Start with basic inspection to understand the data:
 
-3. Feature Engineering
-Added Total_Amount = Quantity × Unit_Price to streamline analysis
+python
+Copy
+Edit
+df.info()
+df.describe()
+df.head()
+Check for anomalies, null values, and data types.
 
-4. Load into SQL
-Loaded cleaned data into MySQL and PostgreSQL using SQLAlchemy
+6. 🧹 Data Cleaning
+Remove duplicates
 
-Verified accuracy using test queries
+Handle missing values
 
-5. SQL Business Analysis
-Wrote SQL queries to address key business questions:
+Convert date and time columns to datetime
 
+Clean currency fields and convert to float:
+
+python
+Copy
+Edit
+df['unit_price'] = df['unit_price'].replace(r'[\$,]', '', regex=True).astype(float)
+7. 🏗️ Feature Engineering
+Create a total_amount column for revenue analysis:
+
+python
+Copy
+Edit
+df['total_amount'] = df['unit_price'] * df['quantity']
+This column is used in multiple SQL queries for financial metrics.
+
+8. 🗃️ Load Cleaned Data into SQLite
+python
+Copy
+Edit
+import sqlite3
+
+conn = sqlite3.connect("walmart_sales.db")
+df.to_sql("walmart", conn, if_exists="replace", index=False)
+You can also use SQLAlchemy for loading into MySQL/PostgreSQL.
+
+9. 📊 SQL-Based Business Analysis
+Run complex SQL queries to derive insights like:
+
+💰 Total revenue by branch, city, and category
+
+📈 Monthly sales trends
+
+🛒 Top-selling products and best-selling payment methods
+
+⏰ Peak shopping hours and customer behavior
+
+📉 Profit margin analysis by category and branch
+
+SQL scripts can be found in:
+📂 sql_queries/analysis.sql
+
+10. 📝 Documentation & GitHub Publishing
+All notebooks and scripts are documented and version-controlled.
+
+Deliverables include:
+
+README.md
+
+Cleaned dataset (or instructions to obtain it)
+
+Python and SQL scripts
+
+Analysis notebooks (/notebooks folder)
 📈 Sales trends across branches and categories
 
 ### 1. Total Revenue by Branch
