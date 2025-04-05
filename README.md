@@ -35,25 +35,15 @@ df.head()
 Check for anomalies, null values, and data types.
 
 5. 🧹 Data Cleaning
-Remove Duplicates: Eliminated duplicate entries to prevent skewed analysis results.
+•	Remove Duplicates: Eliminated duplicate entries to prevent skewed analysis results.
 
-Handle Missing Values:
+•	Handle Missing Values: Dropped rows or columns with insignificant missing values. Filled in values where necessary to preserve data integrity.
 
-Dropped rows or columns with insignificant missing values.
+•	Fix Data Types: Converted columns to appropriate data types (e.g., date as datetime, unit_price as float).
 
-Imputed or filled in values where necessary to preserve data integrity.
+•	Currency Formatting: Removed currency symbols (e.g., $) from unit_price using .replace() and converted values to numerical format.
 
-Fix Data Types:
-
-Converted columns to appropriate data types (e.g., date as datetime, unit_price as float).
-
-Currency Formatting:
-
-Removed currency symbols (e.g., $) from unit_price using .replace() and converted values to numerical format.
-
-Validation:
-
-Verified the final dataset for consistency, formatting errors, and data type mismatches.
+•	Validation: Verified the final dataset for consistency, formatting errors, and data type mismatches.
 
 6. 🏗️ Feature Engineering
 Create a total_amount column for revenue analysis:
