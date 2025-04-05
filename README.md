@@ -1,5 +1,5 @@
-🚀 Project Workflow: Walmart Sales Data Analysis
-This end-to-end data analytics project focuses on uncovering key business insights from Walmart sales data using Python, Pandas, SQLite (optionally MySQL/PostgreSQL), and SQL. Below is a step-by-step breakdown of the process.
+Walmart Sales Data Analysis
+This end-to-end data analytics project focuses on uncovering key business insights from Walmart sales data using Python, Pandas, SQLite and SQL. Below is a step-by-step breakdown of the process.
 
 1. 📁 Project Environment Setup
 Tools Used: Visual Studio Code (VS Code), Python 3.8+, SQLite / MySQL / PostgreSQL
@@ -15,18 +15,18 @@ Store the dataset in the data/ folder for consistent access.
 
 3. 📦 Install Required Libraries
 Install all Python packages needed to run the project:
-```
 
+```python
 pip install pandas numpy sqlalchemy sqlite3
 ```
 For optional MySQL or PostgreSQL integration:
-```
+```python
 pip install mysql-connector-python psycopg2
 ```
 4. 🔍 Exploratory Data Analysis (EDA)
 Start with basic inspection to understand the data:
 
-```
+```python
 df.info()
 df.describe()
 df.head()
@@ -42,18 +42,19 @@ Convert date and time columns to datetime
 
 Clean currency fields and convert to float:
 
-```
+```python
 df['unit_price'] = df['unit_price'].replace(r'[\$,]', '', regex=True).astype(float)
 ```
 6. 🏗️ Feature Engineering
 Create a total_amount column for revenue analysis:
-```
-python
+
+```python
 df['total_amount'] = df['unit_price'] * df['quantity']
 ```
 This column is used in multiple SQL queries for financial metrics.
 
 7. 🗃️ Load Cleaned Data into SQLite
+   
 ```python
 import sqlite3
 conn = sqlite3.connect("walmart_sales.db")
